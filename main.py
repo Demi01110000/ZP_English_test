@@ -1,3 +1,6 @@
+
+# main.py
+
 from tkinter import Tk, Button
 
 from quiz_logic import QuizLogic
@@ -17,3 +20,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

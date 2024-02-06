@@ -1,3 +1,6 @@
+
+# quiz_gui.py
+
 from tkinter import Tk, Label, Radiobutton, Button
 
 class QuizGUI:
@@ -18,6 +21,9 @@ class QuizGUI:
             option.pack()
             self.options.append(option)
 
+        self.score_label = Label(self.window, text="", font=("Verdana", 15))
+        self.score_label.pack()
+
         next_button = Button(self.window, text="Next", command=self.logic.next_question, font=("Verdana", 15))
         next_button.pack()
 
@@ -35,5 +41,4 @@ class QuizGUI:
             self.options[i - 1].config(text=f"{chr(64 + i)}. {option}")
 
     def show_final_score(self):
-        # Add logic for displaying the final score
-        pass
+        self.score_label.config(text=f"Your Score: {self.logic.score}")
