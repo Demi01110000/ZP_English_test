@@ -1,11 +1,12 @@
 from tkinter import Tk, Button
-from quiz_logic import start_quiz
+from quiz_logic import QuizLogic
 
 def main():
     window = Tk()
     window.title('Test Application')
 
-    btn_load_csv = Button(window, text="Load CSV", command=start_quiz)
+    logic = QuizLogic()
+    btn_load_csv = Button(window, text="Load CSV", command=logic.start_quiz)
     btn_load_csv.pack()
 
     window.mainloop()
