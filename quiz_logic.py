@@ -12,6 +12,7 @@ class QuizLogic:
         self.matrix = load_csv()
         if self.matrix:
             self.quiz_gui = QuizGUI(self.matrix, self)
+            self.quiz_gui.question_index = 1  # Start from the second row
             self.quiz_gui.run_quiz()
 
     def check_answer(self, selected_option):
