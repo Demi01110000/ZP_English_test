@@ -1,6 +1,4 @@
-
 # quiz_gui.py
-
 from tkinter import Tk, Label, Radiobutton, Button
 
 class QuizGUI:
@@ -12,19 +10,23 @@ class QuizGUI:
         self.window = Tk()
         self.window.title('Quiz Application')
 
-        self.question_label = Label(self.window, text="", font=("Verdana", 20), wraplength=500)
+        # Set background color to a shade of pink
+        self.window.configure(bg='#FFD9EC')  # You can adjust the color code as needed
+
+        self.question_label = Label(self.window, text="", font=("Verdana", 20), wraplength=500, bg='#FFD9EC')  # Set background color
         self.question_label.pack()
 
         self.options = []
-        for i in range(1, len(self.matrix[0]) - 1):  # Adjusted to exclude the last column (Correct Answer)
-            option = Radiobutton(self.window, text="", font=("Verdana", 15), value=i, command=lambda i=i: self.logic.check_answer(i))
+        for i in range(1, len(self.matrix[0]) - 1):
+            option = Radiobutton(self.window, text="", font=("Verdana", 15), value=i, command=lambda i=i: self.logic.check_answer(i), bg='#FFD9EC')  # Set background color
             option.pack()
             self.options.append(option)
 
-        self.score_label = Label(self.window, text="", font=("Verdana", 15))
+        # Set background color to a different shade of pink
+        self.score_label = Label(self.window, text="", font=("Verdana", 15), bg='#FFC3D4')  # You can adjust the color code as needed
         self.score_label.pack()
 
-        next_button = Button(self.window, text="Next", command=self.logic.next_question, font=("Verdana", 15))
+        next_button = Button(self.window, text="Next", command=self.logic.next_question, font=("Verdana", 15), bg='#FFC3D4')  # Set background color
         next_button.pack()
 
     def run_quiz(self):
@@ -33,12 +35,14 @@ class QuizGUI:
 
     def load_question(self):
         question = self.matrix[self.question_index][0]
-        options = self.matrix[self.question_index][1:-1]  # Exclude the last column (Correct Answer)
+        options = self.matrix[self.question_index][1:-1]
 
-        self.question_label.config(text=question)
+        # Set background color to a shade of pink
+        self.question_label.config(text=question, bg='#FFD9EC')
 
         for i, option in enumerate(options, start=1):
-            self.options[i - 1].config(text=f"{chr(64 + i)}. {option}")
+            self.options[i - 1].config(text=f"{chr(64 + i)}. {option}", bg='#FFD9EC')
 
     def show_final_score(self):
-        self.score_label.config(text=f"Your Score: {self.logic.score}")
+        # Set background color to a different shade of pink
+        self.score_label.config(text=f"Your Score: {self.logic.score}", bg='#FFC3D4')
