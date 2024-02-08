@@ -1,22 +1,28 @@
 # main.py
+
 from tkinter import Tk, Button
 
 from quiz_logic import QuizLogic
 
 def main():
+    # Vytvoření hlavního okna aplikace
     window = Tk()
-    window.title('Test Application')
+    window.title('Testovací Aplikace')
 
-    # Set the size of the main window
-    window.geometry("400x200")  # Adjust the width and height as needed
+    # Nastavení velikosti hlavního okna
+    window.geometry("400x200")  # šířka a výška 
 
-    # Set background color to a shade of pink
-    window.configure(bg='#FFD9EC')  # You can adjust the color code as needed
+    # Nastavení barvy pozadí na odstín růžové
+    window.configure(bg='#FFD9EC')  # kód barvy 
 
+    # Inicializace instance třídy QuizLogic
     logic = QuizLogic()
-    btn_load_csv = Button(window, text="Load CSV and start the Quiz", command=logic.start_quiz, bg='#FFD9EC')  # Set background color
+
+    # Vytvoření tlačítka pro načtení CSV a spuštění kvízu
+    btn_load_csv = Button(window, text="Načíst CSV a spustit kvíz", command=logic.start_quiz, bg='#FFD9EC')  # Nastavení barvy pozadí
     btn_load_csv.pack()
 
+    # Spuštění hlavní smyčky aplikace
     window.mainloop()
 
 if __name__ == "__main__":
